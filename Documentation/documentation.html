@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Akordian Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Akordian&rdquo; Documentation by &ldquo;Web Dingo&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Akordian&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 19/03/2023<br>
+					By: WebDingo<br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/webdingo" target="_blank">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+			
+		
+		</ol>
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>This Template is a single page layout with all the pages placed inside the same HTML file index.html. 
+		<br>Each 'page' is a section tag with the class of 'page'. The ID of each section tag is used for the mobile navigation menu.
+		<br>	
+			
+		</p>
+<pre><code>&lt;section class="page" id="page-id" &gt;
+  &lt;header&gt;
+    &lt;span class="title"&gt; <b>MENU TITLE</b> &lt;/span&gt;
+  &lt;/header&gt;
+  &lt;div class="content grid">
+    &lt;div class="page-header c12">
+      &lt;h1 data-value="About me"> <b>PAGE TITLE</b> &lt;/h1>
+      &lt;hr>
+    &lt;/div>
+    &lt;div class="row">
+      &lt;div class="c12 end"> <b>CONTENT</b> &lt;/div>
+    &lt;/div>
+  &lt;/div>        
+&lt;/section&gt;</code>
+</pre>
+
+<p>
+<b>MENU TITLE</b> Is whats displayed as the vertical text for each tab and <b>PAGE TITLE</b> Is whats displayed at the top of an open tab, <strong>data-value</strong> is used for the heading animation. The rest of your content can be placed in a row/column structure as above. 
+</p>
+<p>
+The template has classes for columns <code>C1</code> through to <code>C12</code>, for example four columns per row you can use the class<code>c3</code>, three columns <code>c4</code> class, two columns <code>c6</code> class etc. The last column of each row should have the class <code>end</code>. 
+</p>
+<p>
+When modifying the amount of pages/sections. You will also need to adjust the CSS by going to line 160 in the main.css file located in the CSS folder.	
+</p>
+<pre>
+.page.active{
+  width: calc(100% - 320px);
+}
+</pre>
+<p>The <code>320px</code> is based on 4 page headers at 80px each (About,Portfolio,Blog,Contact) The Home Page is not included.</p>	
+<h5>Blog Pages</h5>
+<p>The Blog single post pages are loaded via AJAX, the content for those pages may be edited in the blog-single-1, 2 and 3 HTML files.</p>
+<h5>Contact Page</h5>
+<p>To Set up the contact form you will need to open the <b>contact_mail.php</b> file and change the following line to your email address.</p>
+<pre>$toEmail = "your_email@mail.com";</pre>
+<p>The address on the contact form can be modified by entering your latitude and longitude in lines 19 and 35 in main.js file located in the js folder. <a href="https://www.latlong.net/" target="_blank">latlong.net</a> Is a good site to find your latitude and longitude.</p>
+<pre>center:[40.712776, -74.005974],</pre>
+<pre>let marker = new L.Marker([40.712776, -74.005974] , iconOptions);</pre>
+<h5>Portfolio Page</h5>
+<p>For video or music portfolio items you will need to use the <strong>popup-iframe</strong> class and use the embed link from Youtube or Sound cloud.</p>
+<pre>&lt;li class="popup-iframe" data-groups='["all","video"]'&gt</pre>
+
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>This template uses one CSS file <code>main.css</code> located in the CSS folder. If you would like to edit a specific section of the site, simply scroll down until you find the appropriate style that needs to be edited. The CSS is arranged in following order</p>
+		<ul>
+	       	<li>1 - Normalize</li>
+	       	<li>2 - Base</li>
+			<li>3 - Layout</li>
+      		<li>3.1 - Mouse Trailer</li>
+      		<li>3.2 - Columns</li>
+      		<li>3.3 - Navigation</li>
+			<li>4 - Typography</li>
+			<li>5 - Elements</li>
+      		<li>5.1 - Tiny Slider</li>
+      		<li>5.2 - Tabs</li>
+      		<li>5.3 - Skill Bar</li>
+			<li>6 - Portfolio</li>
+			<li>7 - Blog</li>
+			<li>8 - Media Queries</li>
+		</ul>
+   
+
+
+<p>The background image for the home page mouse trailer can be editied under 3.1 Mouse Trailer on the following line - </p>
+<pre>background-image: url('../img/background.jpg');</pre>	
+<p>Section 5 Elements, contains the main elements on the About page. The testimonial slider, client slider, icon boxes and the skill level bars.</p>
+<hr>
+		
+<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This template has four Javascript files.</p>
+		
+		<ol>
+			<li>jQuery</li>
+			<li>leaflet.js</li>
+			<li>script.js</li>
+			<li>plugins.js</li>
+		</ol>
+		  
+		<ol>
+			<li>jQuery is a Javascript library that greatly reduces the amount of code that you must write.</li>
+			<li>Leaflet JavaScript library for mobile-friendly interactive maps.</li>
+			<li>
+			  <p>This file contains the plugin calls and some custom script. You shouldn't need to change much here apart from the home page text ticker text which can be modified on line 256 - </p>
+<pre>strings: ["web designer.", "front end developer.", "coffee drinker."],</pre>
+<p>The address on the contact form can be modified by entering your latitude and longitude in lines 19 and 35. <a href="https://www.latlong.net/" target="_blank">latlong.net</a> Is a good site to find your latitude and longitude.</p>
+<pre>center:[40.712776, -74.005974],</pre>
+<pre>let marker = new L.Marker([40.712776, -74.005974] , iconOptions);</pre>
+			  <p>If you do change the name of the mouse trailer background image 'background.jpg' you will also need to update the following on line 12.</p>
+<pre>image.src = "img/background.jpg";</pre>
+		
+		<p>The Client Slider and Testimonial Slider at the top of the file use the Tiny Slider plugin which also supports several settings, the official documentation for the slider can be found at <a href="https://github.com/ganlanyuan/tiny-slider">https://github.com/ganlanyuan/tiny-slider</a> </p></li>
+		<li>This contains all the plugins script.</li>
+        </ol>
+		
+<hr>
+		
+		<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+<p>I've used the following images, icons and plugins as listed.
+		
+  <ul>
+			<li>Images - Unsplash , ShutterStock</li>
+			<li>Icons - <a target="_blank" href="https://lineicons.com/">Lineicons</a></li>
+			<li>Typed JS - <a target="_blank" href="https://github.com/mattboldt/typed.js">https://github.com/mattboldt/typed.js</a></li>
+            <li>Shuffle JS - <a target="_blank" href="https://vestride.github.io/Shuffle/">https://vestride.github.io/Shuffle/</a></li>
+            <li>Magnific Popup <a target="_blank" href="http://dimsemenov.com/plugins/magnific-popup/">http://dimsemenov.com/plugins/magnific-popup/</a></li>
+            <li>Tiny Slider <a target="_blank" href="https://github.com/ganlanyuan/tiny-slider">https://github.com/ganlanyuan/tiny-slider</a></li>
+            <li>Leaflet.js <a target="_blank" href="https://leafletjs.com/">https://leafletjs.com/</a></li>
+        </ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Web Dingo</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
